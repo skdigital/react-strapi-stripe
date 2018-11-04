@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.4.0.tgz",
   "_shasum": "7d45eb53cc7fa48cb274e2d45e729cd0d68d2690",
   "_spec": "strapi-plugin-graphql@3.0.0-alpha.14.4.0",
-  "_where": "C:\\Users\\Sean Knowles\\Desktop\\Dev\\ReedBarger\\react-strapi-stripe\\server",
+  "_where": "/home/skdigital/Dev/react-strapi-stripe/server",
   "author": {
     "name": "A Strapi developer"
   },
@@ -29,7 +29,7 @@
   "dependencies": {
     "apollo-server-koa": "^2.0.7",
     "glob": "^7.1.3",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.2",
     "graphql-depth-limit": "^1.1.0",
     "graphql-playground-middleware-koa": "^1.6.4",
     "graphql-tools": "^3.1.1",

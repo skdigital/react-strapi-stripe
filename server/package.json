@@ -24,20 +24,20 @@
     "strapi-hook-mongoose": "3.0.0-alpha.14.4.0"
   },
   "author": {
-    "name": "A Strapi developer",
+    "name": "skdigital",
     "email": "",
     "url": ""
   },
   "maintainers": [
     {
-      "name": "A Strapi developer",
+      "name": "skdigital",
       "email": "",
       "url": ""
     }
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "98f6d4eb-1a53-475e-b459-98af5b5a033a"
+    "uuid": "83aab2ad-cc1b-4f6a-b35d-4dc181990377"
   },
   "engines": {
     "node": ">= 9.0.0",

@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.4.0.tgz",
   "_shasum": "3c4c89336debc14f9c83fbb782af96240a025647",
   "_spec": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
-  "_where": "C:\\Users\\Sean Knowles\\Desktop\\Dev\\ReedBarger\\react-strapi-stripe\\server",
+  "_where": "/home/skdigital/Dev/react-strapi-stripe/server",
   "author": {
     "name": "A Strapi developer"
   },

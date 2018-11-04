@@ -5,15 +5,15 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "ds249873.mlab.com",
+        "host": "ds251223.mlab.com",
         "srv": false,
-        "port": "49873",
-        "database": "react-strapi-stripe",
+        "port": "51223",
+        "database": "brewhaha",
         "username": "skdigital",
         "password": "admin101"
       },
       "options": {
-        "authenticationDatabase": "react-strapi-stripe",
+        "authenticationDatabase": "brewhaha",
         "ssl": false
       }
     }
