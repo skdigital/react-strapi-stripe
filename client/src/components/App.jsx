@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // prettier-ignore
 import { Container, Box,Heading, Card, Image, Text, SearchField, Icon} from 'gestalt';
-import { Link } from 'react-router-dom';
-import Loader from './shared/Loader';
-import './styles/App.css';
-import Strapi from 'strapi-sdk-javascript/build/main';
-const apiUrl = process.env.API_URL || 'http://localhost:1337';
+import { Link } from "react-router-dom";
+import Loader from "./shared/Loader";
+import "./styles/App.css";
+import Strapi from "strapi-sdk-javascript/build/main";
+const apiUrl = process.env.API_URL || "http://localhost:1337";
 const strapi = new Strapi(apiUrl);
 
 class App extends Component {
   state = {
     brands: [],
-    searchTerm: '',
+    searchTerm: "",
     loadingBrands: true
   };
 
   async componentDidMount() {
     try {
-      const response = await strapi.request('POST', '/graphql', {
+      const response = await strapi.request("POST", "/graphql", {
         data: {
           query: `query {
           brands {
@@ -31,7 +31,7 @@ class App extends Component {
       }`
         }
       });
-      console.log(response.data.brands)
+      console.log(response.data.brands);
       this.setState({ brands: response.data.brands, loadingBrands: false });
     } catch (err) {
       console.error(err);
@@ -71,7 +71,7 @@ class App extends Component {
               <Icon
                 icon="filter"
                 accessibilityLabel="Brands Filter Icon"
-                color={searchTerm ? 'orange' : 'gray'}
+                color={searchTerm ? "orange" : "gray"}
               />
             </Box>
           </Box>
@@ -88,7 +88,7 @@ class App extends Component {
             display="flex"
             justifyContent="around"
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: '#d6c8ec' }
+              __style: { backgroundColor: "#d6c8ec" }
             }}
             shape="rounded"
           >
