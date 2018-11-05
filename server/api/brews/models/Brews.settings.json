@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "",
   "info": {
-    "name": "brands",
+    "name": "brews",
     "description": ""
   },
   "options": {
@@ -23,9 +23,13 @@
       "plugin": "upload",
       "required": false
     },
-    "brews": {
-      "collection": "brews",
-      "via": "brands"
+    "price": {
+      "default": "",
+      "type": "decimal"
+    },
+    "brands": {
+      "model": "brands",
+      "via": "brews"
     }
   }
 }
