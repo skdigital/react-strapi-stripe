@@ -1,16 +1,10 @@
 import React from 'react';
-import Strapi from 'strapi-sdk-javascript/build/main';
-import {
-  Box,
-  Heading,
-  Text,
-  Image,
-  Card,
-  Button,
-  Mask,
-  IconButton
-} from 'gestalt';
 import { Link } from 'react-router-dom';
+// prettier-ignore
+import {Box,Heading,Text,Image,Card, Button, Mask, IconButton} from 'gestalt';
+import { calculatePrice } from '../utils/helpers';
+
+import Strapi from 'strapi-sdk-javascript/build/main';
 const apiUrl = process.env.API_URL || 'http://localhost:1337';
 const strapi = new Strapi(apiUrl);
 
@@ -69,9 +63,40 @@ class Brews extends React.Component {
     }
   };
 
+  deleteItemFromCart = ({ _id, quantity }) => {
+    if (quantity <= 1) {
+      const filteredItems = this.state.cartItems.filter(
+        item => item._id !== _id
+      );
+      this.setState({ cartItems: filteredItems });
+    } else {
+      const elementIndex = this.state.cartItems.findIndex(
+        element => _id === element._id
+      );
+      const updatedItems = [...this.state.cartItems];
+      updatedItems[elementIndex].quantity -= 1;
+      this.setState({ cartItems: updatedItems });
+    }
+  };
+
+  // removeFromCart = item => {
+  //   const itemCartIndex = this.state.cartItems.findIndex(
+  //     brew => brew._id === item._id
+  //   );
+  //   if (item.quantity > 0) {
+  //     const updatedItems = [...this.state.cartItems];
+  //     updatedItems[itemCartIndex].quantity -= 1;
+  //     this.setState({ cartItems: updatedItems });
+  //   }
+  //   const updatedItems = [...this.state.cartItems];
+  //   if (updatedItems[itemCartIndex].quantity === 0) {
+  //     updatedItems.splice(itemCartIndex);
+  //     this.setState({ cartItems: updatedItems });
+  //   }
+  // };
+
   render() {
     const { brand, brews, cartItems } = this.state;
-
     return (
       <Box
         marginTop={4}
@@ -176,6 +201,7 @@ class Brews extends React.Component {
                     icon="cancel"
                     size="sm"
                     iconColor="red"
+                    onClick={() => this.deleteItemFromCart(item)}
                   />
                 </Box>
               ))}
@@ -191,7 +217,7 @@ class Brews extends React.Component {
                     <Text color="red">Please select some items</Text>
                   )}
                 </Box>
-                <Text size="lg">Total: $3.99</Text>
+                <Text size="lg">Total: {calculatePrice(cartItems)}</Text>
                 <Text>
                   <Link to="/checkout">Checkout</Link>
                 </Text>
