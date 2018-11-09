@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // prettier-ignore
 import {Box,Heading,Text,Image,Card, Button, Mask, IconButton} from 'gestalt';
-import { calculatePrice } from '../utils/helpers';
+import { calculatePrice, setCart, getCart } from '../utils/helpers';
 
 import Strapi from 'strapi-sdk-javascript/build/main';
 const apiUrl = process.env.API_URL || 'http://localhost:1337';
@@ -38,7 +38,8 @@ class Brews extends React.Component {
       });
       this.setState({
         brews: response.data.brand.brews,
-        brand: response.data.brand.name
+        brand: response.data.brand.name,
+        cartItems: getCart()
       });
     } catch (err) {
       console.error(err);
@@ -55,11 +56,11 @@ class Brews extends React.Component {
         ...brew,
         quantity: 1
       });
-      this.setState({ cartItems: updatedItems });
+      this.setState({ cartItems: updatedItems }, () => setCart(updatedItems));
     } else {
       const updatedItems = [...this.state.cartItems];
       updatedItems[alreadyInCart].quantity += 1;
-      this.setState({ cartItems: updatedItems });
+      this.setState({ cartItems: updatedItems }, () => setCart(updatedItems));
     }
   };
 
@@ -68,14 +69,14 @@ class Brews extends React.Component {
       const filteredItems = this.state.cartItems.filter(
         item => item._id !== _id
       );
-      this.setState({ cartItems: filteredItems });
+      this.setState({ cartItems: filteredItems }, () => setCart(filteredItems));
     } else {
       const elementIndex = this.state.cartItems.findIndex(
         element => _id === element._id
       );
       const updatedItems = [...this.state.cartItems];
       updatedItems[elementIndex].quantity -= 1;
-      this.setState({ cartItems: updatedItems });
+      this.setState({ cartItems: updatedItems }, () => setCart(updatedItems));
     }
   };
 
