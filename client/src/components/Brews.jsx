@@ -79,22 +79,6 @@ class Brews extends React.Component {
     }
   };
 
-  // removeFromCart = item => {
-  //   const itemCartIndex = this.state.cartItems.findIndex(
-  //     brew => brew._id === item._id
-  //   );
-  //   if (item.quantity > 0) {
-  //     const updatedItems = [...this.state.cartItems];
-  //     updatedItems[itemCartIndex].quantity -= 1;
-  //     this.setState({ cartItems: updatedItems });
-  //   }
-  //   const updatedItems = [...this.state.cartItems];
-  //   if (updatedItems[itemCartIndex].quantity === 0) {
-  //     updatedItems.splice(itemCartIndex);
-  //     this.setState({ cartItems: updatedItems });
-  //   }
-  // };
-
   render() {
     const { brand, brews, cartItems } = this.state;
     return (
