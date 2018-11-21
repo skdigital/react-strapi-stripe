@@ -33,7 +33,6 @@ class App extends Component {
           `
         }
       });
-      console.log(response.data.brands);
       this.setState({ brands: response.data.brands, loadingBrands: false });
     } catch (err) {
       console.error(err);
