@@ -1,0 +1,18 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "client/package.json",
+        "server/admin/package.json",
+        "server/package.json",
+        "server/plugins/content-manager/package.json",
+        "server/plugins/content-type-builder/package.json",
+        "server/plugins/email/package.json",
+        "server/plugins/graphql/package.json",
+        "server/plugins/settings-manager/package.json",
+        "server/plugins/upload/package.json",
+        "server/plugins/users-permissions/package.json"
+      ]
+    }
+  }
+}
